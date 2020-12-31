@@ -1,0 +1,21 @@
+<div class="ui huge menu">
+  <%= link_to "Time Capsule", root_path, class: "active item" %>
+  <div class="right menu">
+    <% if !user_signed_in? %>
+      <%= link_to "Sign In", new_user_session_path, class: "item right floated" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "item right floated" %>
+    <% else %>
+      <div class="ui dropdown right item">
+        New Project
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item"><%= link_to "Journal Entry", new_journal_path %></div>
+          <div class="item">Photo</div>
+          <div class="item">To-Do</div>
+          <div class="item">View my Calendar</div>
+        </div>
+      </div>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "item right floated" %>
+    <% end %>
+  </div>
+</div>
