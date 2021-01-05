@@ -1,0 +1,3 @@
+<%= simple_form_for([taggable, Tag.new]) do |f| %>
+  <%= f.input :tag_ids, collection: Journal::TAGS, input_html: { multipart: true, multiple: true } %>
+<% end %>
