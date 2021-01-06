@@ -1,17 +1,10 @@
 class TagsController < ApplicationController
 
-  def new
-    @tag = taggable.tags.new
-  end
-
   def create
-    @tag = taggable.tags.create(tag_params)
-
-    if @tag.save?
-      redirect_to my_entries_path
-    else
-      render :new
-    end
+    @tag = @taggable.tags.create(tag_params)
+    @tag.save
+    redirect_to my_dashboard_path
+    flash[:notice] = "Entry added!"
   end
 
 

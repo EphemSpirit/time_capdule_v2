@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   get '/new_entry', to: 'journals#new'
   post '/new_entry', to: 'journals#create'
   get 'my_entries', to: 'journals#index'
-  resources :journals, only: [:show] do
-    resources :tags, only: [:new, :create]
+  get '/my_dashboard', to: 'dashboards#show'
+
+  resources :journals, only: [:show, :edit] do
+    resources :tags, only: [:create], module: :journals
   end
-  resource :dashboard, only: [:new, :create, :show, :destroy]
+
+  resource :dashboard, only: [:new, :create, :destroy]
 end

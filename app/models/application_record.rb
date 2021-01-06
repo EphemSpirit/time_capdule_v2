@@ -16,5 +16,5 @@ class ApplicationRecord < ActiveRecord::Base
   def tag_list=(names)
     self.tags = names.split(",").map { |n| Tag.where name: n.strip.first_or_create! }
   end
-  
+
 end

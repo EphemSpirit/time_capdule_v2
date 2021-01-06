@@ -1,5 +1,5 @@
 class JournalsController < ApplicationController
-  before_action :find_journal, only: [:show, :destroy]
+  before_action :find_journal, only: [:show, :edit, :update, :destroy]
 
   def index
     @journals = current_user.entries
@@ -13,17 +13,28 @@ class JournalsController < ApplicationController
     @journal = current_user.entries.build(journal_params)
 
     if @journal.save
-      redirect_to @journal
-      flash[:notice] = "Journal entry saved!"
+      redirect_to edit_journal_path(@journal.id)
+      flash[:notice] = "Add tags to make this entry searchable!"
     else
       render 'new'
       flash[:notice] = "Something went wrong"
     end
   end
 
+
   def show
 
   end
+
+  def edit
+
+  end
+
+  def update
+    @journal.update(journal_params)
+    redirect_to my_dashboard_path
+  end
+
 
   def destroy
     @journal.destroy
