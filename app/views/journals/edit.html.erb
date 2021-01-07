@@ -1,7 +1,7 @@
 <h2 class="ui centered header">Edit Journal Entry</h2>
 
 <div class="ui container">
-  <%= simple_form_for(@journal, url: new_entry_url, local: true, html: { class: "ui form" }) do |f| %>
+  <%= simple_form_for(@journal, local: true, html: { class: "ui form" }) do |f| %>
     <div class="field">
       <%= f.input :title, required: true %>
     </div>
@@ -10,10 +10,10 @@
       <%= f.rich_text_area :body, required: true %>
     </div>
     <div class="field">
-      <%= render 'shared/tags_form', taggable: @journal %>
+      <%= f.input :tags, collection: Journal::TAGS, as: :check_boxes %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Post Entry", class: "positive ui button" %>
+      <%= f.button :submit, "Update Entry", class: "positive ui button" %>
       <%= link_to "Cancel", root_path %>
     </div>
   <% end %>

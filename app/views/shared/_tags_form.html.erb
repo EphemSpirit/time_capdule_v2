@@ -1,4 +1,4 @@
-<%= simple_form_for([taggable, Tag.new]) do |f| %>
+<%= simple_form_for(taggable) do |f| %>
   <div class="field">
     <%= f.input :tag_ids, collection: Journal::TAGS, input_html: { multipart: true, multiple: true } %>
   </div>

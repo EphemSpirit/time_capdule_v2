@@ -23,15 +23,14 @@ class JournalsController < ApplicationController
 
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
     @journal.update(journal_params)
+    tags.each { |tag| @journal.tags.create(name: tag) }
     redirect_to my_dashboard_path
   end
 
@@ -49,7 +48,15 @@ class JournalsController < ApplicationController
     end
 
     def journal_params
-      params.require(:journal).permit(:title, :body, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      permitted_params.except(:tags)
+    end
+
+    def permitted_params
+      params.require(:journal).permit(:title, :body, tags: [])
+    end
+
+    def tags
+      permitted_params.slice(:tags)
     end
 
 end

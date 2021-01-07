@@ -1,4 +1,4 @@
-class DhasboardsController < ApplicationController
+class DashboardsController < ApplicationController
 
   def new
     @dashboard = current_user.dashboard.build
