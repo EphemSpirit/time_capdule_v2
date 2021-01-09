@@ -1,0 +1,10 @@
+<%= month_calendar(attribute: :start_date, events: @meetings) do |date, meetings| %>
+  <%= date %>
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= link_to meeting.title, meetings_path(meeting) %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Add a New Calendar Event", new_meeting_path %>

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_create :build_dashboard
 
   has_one :dashboard, dependent: :destroy
+  has_many :meetings, dependent: :destroy
   has_many :entries, class_name: "Journal", foreign_key: :author_id, dependent: :destroy
 
   private
@@ -14,5 +15,5 @@ class User < ApplicationRecord
     def build_dashboard
       Dashboard.create(user_id: self.id)
     end
-    
+
 end

@@ -27,6 +27,8 @@ gem 'binding_of_caller'
 gem 'image_magick', '~> 0.1.9'
 gem 'hirb', '~> 0.7.3'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
+gem "simple_calendar", "~> 2.0"
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

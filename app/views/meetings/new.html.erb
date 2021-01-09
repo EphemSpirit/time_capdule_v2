@@ -1,0 +1,16 @@
+<h2 class="ui centered header">New Calendar Event</h2>
+
+<div class="ui container">
+  <%= simple_form_for(@meeting, url: new_meeting_url, class: "ui-form") do |f| %>
+    <div class="field">
+      <%= f.input :title, placeholder: "Event Title" %>
+    </div>
+    <div class="field">
+      <%= f.input :start_date, as: :date %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Create Event", class: "positive ui button" %>
+      <%= link_to "Cancel", my_calendar_path %>
+    </div>
+  <% end %>
+</div>
