@@ -56,7 +56,7 @@ class JournalsController < ApplicationController
     end
 
     def tags
-      permitted_params.slice(:tags)
+      permitted_params.slice(:tags).reject(&:empty?)
     end
 
 end
