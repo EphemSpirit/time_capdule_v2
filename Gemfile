@@ -24,10 +24,11 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
 gem 'binding_of_caller'
-gem 'image_magick', '~> 0.1.9'
 gem 'hirb', '~> 0.7.3'
 gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem "simple_calendar", "~> 2.0"
+gem 'active_storage_validations', '~> 0.9.1'
+gem 'mini_magick', '~> 4.11'
 
 
 # Use Active Storage variant

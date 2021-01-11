@@ -1,7 +1,7 @@
 <h2 class="ui centered header">My Dashboard</h2>
 
 <div class="ui grid">
-  <div class="ui five wide column">
+  <div class="ui four wide column">
     <!-- loop through all a users topicables and generate a card for each (current_user.topicables.each do) -->
     <div class="ui card">
       <div class="content">
@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class="ui five wide column">
+  <div class="ui four wide column">
     <!-- loop through all a users topicables and generate a card for each (current_user.topicables.each do) -->
     <div class="ui card">
       <div class="content">
@@ -24,6 +24,32 @@
         Store those photos that you don't want to lise between now and when you put them in an album!
         We all have those memories that we capture during a quick walk, and need some palce to house them
         until we can organize them a bit better. Now you have that place!
+      </div>
+    </div>
+  </div>
+  <div class="ui four wide column">
+    <!-- loop through all a users topicables and generate a card for each (current_user.topicables.each do) -->
+    <div class="ui card">
+      <div class="content">
+        <div class="centered header"><%= link_to "My To-Dos", '#' %></div>
+      </div>
+      <div class="content blurb">
+        Write down your Journal Entries or general musings!
+        This is just the right place to write down those witty one-liners, profound thoughts,
+        or short writings that often come to us during the day and are seemingly gone as soon as a light breeze picks up.
+      </div>
+    </div>
+  </div>
+  <div class="ui four wide column">
+    <!-- loop through all a users topicables and generate a card for each (current_user.topicables.each do) -->
+    <div class="ui card">
+      <div class="content">
+        <div class="centered header"><%= link_to "My Calendar", my_calendar_path %></div>
+      </div>
+      <div class="content blurb">
+        Write down your Journal Entries or general musings!
+        This is just the right place to write down those witty one-liners, profound thoughts,
+        or short writings that often come to us during the day and are seemingly gone as soon as a light breeze picks up.
       </div>
     </div>
   </div>
