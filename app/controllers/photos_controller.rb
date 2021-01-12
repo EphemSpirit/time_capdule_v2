@@ -1,5 +1,9 @@
 class PhotosController < ApplicationController
-  before_action :find_photo, except: [:new, :create]
+  before_action :find_photo, except: [:index, :new, :create]
+
+  def index
+    @photos = current_user.photos
+  end
 
   def new
     @photo = current_user.photos.build
@@ -11,7 +15,7 @@ class PhotosController < ApplicationController
 
     if @photo.save
       flash[:notice] = "Add tags to make this entry searchable!"
-      redirect_to edit_photo_path
+      redirect_to edit_photo_path(@photo.id)
     else
       flash[:notice] = "Something went wrong, please try again"
       render :new

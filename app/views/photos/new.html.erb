@@ -1,0 +1,20 @@
+<h2 class="ui centered header">Upload a New Photo</h2>
+
+<div class="ui container">
+  <%= simple_form_for(@photo, url: new_photo_url, html: { class: "ui form" }) do |f| %>
+    <%= render 'shared/messages' %>
+    <div class="field">
+      <%= f.input :title, required: true %>
+    </div>
+    <div class="field">
+      <%= f.input :image, as: :file, required: true %>
+    </div>
+    <div class="field">
+      <%= f.input :summary, required: true %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Upload Photo", class: "positive ui button" %>
+      <%= link_to "Cancel", my_dashboard_path %>
+    </div>
+  <% end %>
+</div>

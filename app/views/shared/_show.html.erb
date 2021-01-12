@@ -1,0 +1,14 @@
+<div class="ui centered card">
+  <div class="content">
+    <div class="header"><%= item.title %></div>
+    <div class="meta">Made: <%= distance_of_time_in_words(item.created_at) %> ago</div>
+    <div class="description">
+      <p>
+        <%= (item.body ? item.body : item.summary) %>
+      </p>
+      <p>
+        <small>Tags: <%= raw item.tags.map(&:name).join(", ") %></small>
+      </p>
+    </div>
+  </div>
+</div>
