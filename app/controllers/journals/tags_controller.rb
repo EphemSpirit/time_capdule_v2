@@ -4,7 +4,7 @@ class Journals::TagsController < TagsController
   private
 
     def set_taggable
-      @taggable = Journal.find(params[:id])
+      @taggable = Journal.find(params[:journal_id])
     end
 
 end

@@ -1,0 +1,8 @@
+<%= simple_form_for([taggable, Tag.new]) do |f| %>
+  <div class="field">
+    <%= f.input :name, collection: Journal::TAGS, input_html: { multipart: true, multiple: true } %>
+  </div>
+  <div class="field-control">
+    <%= f.button :submit, "Add Tags", class: "positive ui button" %>
+  </div>
+<% end %>

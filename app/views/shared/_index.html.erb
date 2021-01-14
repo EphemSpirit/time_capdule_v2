@@ -5,7 +5,7 @@
         <div class="content">
           <div class="centered header"><%= link_to item.title, (item.is_a?(Journal) ? journal_path(item) : photo_path(item)) %></div>
         </div>
-        <div class="content blurb"><%= (item.body ? item.body : item.summary) %></div>
+        <div class="content blurb"><%= (item.is_a?(Journal) ? item.body : item.summary) %></div>
       </div>
     </div>
   <% end %>

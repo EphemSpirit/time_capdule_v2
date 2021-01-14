@@ -1,0 +1,23 @@
+<h2 class="ui centered header">Edit Photo Entry</h2>
+
+<div class="ui container">
+  <%= simple_form_for(@photo, local: true, html: { class: "ui form" }) do |f| %>
+    <div class="field">
+      <%= image_tag @photo.show_image %>
+    </div>
+    <div class="field">
+      <%= f.input :title, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :summary %>
+      <%= f.input :summary, required: true %>
+    </div>
+    <div class="field">
+      <%= f.input :tags, collection: Photo::TAGS, as: :check_boxes %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Update Photo", class: "positive ui button" %>
+      <%= link_to "Cancel", root_path %>
+    </div>
+  <% end %>
+</div>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post '/new_photo', to: 'photos#create'
 
   resources :journals, only: [:show, :edit, :update] do
-    resources :tags, only: [:create], module: :journals
+    resources :tags, module: :journals
   end
 
   resources :photos, only: [:show, :edit, :update]

@@ -4,11 +4,17 @@
     <div class="meta">Made: <%= distance_of_time_in_words(item.created_at) %> ago</div>
     <div class="description">
       <p>
-        <%= (item.body ? item.body : item.summary) %>
+        <% if item.is_a?(Journal) %>
+          <%= item.body %>
+        <% elsif item.is_a?(Photo) %>
+          <%= image_tag item.show_image %>
+          <%= item.summary %>
+        <% end %>
       </p>
       <p>
         <small>Tags: <%= raw item.tags.map(&:name).join(", ") %></small>
       </p>
+      <%= render 'tags/form', taggable: item %>
     </div>
   </div>
 </div>

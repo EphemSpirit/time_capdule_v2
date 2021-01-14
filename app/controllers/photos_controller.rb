@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    @photo.update(permitted_params)
+    @photo.update(photo_params)
     tags.each { |tag| @photo.tags.create(name: tag) }
   end
 
@@ -50,11 +50,11 @@ class PhotosController < ApplicationController
     end
 
     def permitted_params
-      params.require(:photo).permit(:title, :summary, :image, :tags)
+      params.require(:photo).permit(:title, :summary, :image, tags: [])
     end
 
     def tags
-      permitted_params.slice(:tags).reject(&:empty?)
+      permitted_params.slice(:tags)
     end
 
 end
