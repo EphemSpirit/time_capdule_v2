@@ -13,7 +13,7 @@ class JournalsController < ApplicationController
     @journal = current_user.entries.build(journal_params)
 
     if @journal.save
-      redirect_to edit_journal_path(@journal.id)
+      redirect_to @journal
       flash[:notice] = "Add tags to make this entry searchable!"
     else
       render 'new'
@@ -30,7 +30,6 @@ class JournalsController < ApplicationController
 
   def update
     @journal.update(journal_params)
-    tags.each { |tag| @journal.tags.create(name: tag) }
     redirect_to my_dashboard_path
   end
 
@@ -48,15 +47,15 @@ class JournalsController < ApplicationController
     end
 
     def journal_params
-      permitted_params.except(:tags)
+      params.require(:journal).permit(:title, :body)
     end
 
-    def permitted_params
-      params.require(:journal).permit(:title, :body, tags: [])
-    end
-
-    def tags
-      permitted_params.slice(:tags)
-    end
+    # def permitted_params
+    #   params.require(:journal).permit(:title, :body, tags: [])
+    # end
+    #
+    # def tags
+    #   permitted_params.slice(:tags)
+    # end
 
 end

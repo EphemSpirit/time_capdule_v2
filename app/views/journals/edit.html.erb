@@ -9,7 +9,6 @@
       <%= f.label :body %>
       <%= f.rich_text_area :body, required: true %>
     </div>
-    <%= render 'tags/form', taggable: @journal %>
     <div class="form-actions">
       <%= f.button :submit, "Update Entry", class: "positive ui button" %>
       <%= link_to "Cancel", root_path %>
