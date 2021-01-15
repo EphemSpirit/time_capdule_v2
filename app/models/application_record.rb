@@ -2,11 +2,7 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   def self.tagged_with(name)
-    Tag.find_by!(name: name).posts
-  end
-
-  def self.tag_counts
-    Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
+    Tag.find_by!(name: name).journals
   end
 
   def tag_list
@@ -15,6 +11,10 @@ class ApplicationRecord < ActiveRecord::Base
 
   def tag_list=(names)
     self.tags = names.split(",").map { |n| Tag.where name: n.strip.first_or_create! }
+  end
+
+  def clean_tags
+    self.tags.map(&:name).reject(&:nil?)[0].split(", ")
   end
 
 end
