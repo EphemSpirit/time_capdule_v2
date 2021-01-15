@@ -5,8 +5,8 @@
     <% if item.is_a?(Journal || ToDo) %>
       <%= item.body %>
     <% else %>
-      <%= image_tag item.show_image %>
-      <%= item.summary %>
+      <%= image_tag item.image %>
+      <p><%= item.summary %></p>
     <% end %>
   </p>
   <p>
