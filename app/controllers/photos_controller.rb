@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
 
     if @photo.save
       flash[:notice] = "Add tags to make this entry searchable!"
-      redirect_to edit_photo_path(@photo.id)
+      redirect_to @photo
     else
       flash[:notice] = "Something went wrong, please try again"
       render :new

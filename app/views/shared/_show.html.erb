@@ -1,11 +1,10 @@
-
 <div class="ui segment">
   <p class="item-title"><strong><%= item.title %></strong></p>
   <hr>
   <p>
-    <% if item.is_a?(Journal) %>
+    <% if item.is_a?(Journal || ToDo) %>
       <%= item.body %>
-    <% elsif item.is_a?(Photo) %>
+    <% else %>
       <%= image_tag item.show_image %>
       <%= item.summary %>
     <% end %>

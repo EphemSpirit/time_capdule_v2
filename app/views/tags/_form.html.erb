@@ -1,6 +1,6 @@
 <%= simple_form_for([taggable, Tag.new]) do |f| %>
   <div class="field tag-field">
-    <%= f.input :name, placeholder: "add comma separated tags (photo, journal, musing, blurb...)" %>
+    <%= f.input :name, placeholder: "tag1, tag2..." %>
   </div>
   <div class="field-control">
     <%= f.button :submit, "Add Tags", class: "positive ui button" %>

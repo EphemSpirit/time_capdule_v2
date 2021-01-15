@@ -16,12 +16,14 @@ Rails.application.routes.draw do
   post '/new_meeting', to: 'meetings#create'
 
   get '/my_photos', to: 'photos#index'
+  get '/new_photo', to: 'photos#new'
+  post '/new_photo', to: 'photos#create'
 
   resources :journals, only: [:show, :edit, :update] do
     resources :tags, module: :journals
   end
 
-  resources :photos do
+  resources :photos, except: [:index, :new, :create] do
     resources :tags, module: :photos
   end
 
