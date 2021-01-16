@@ -1,7 +1,1 @@
-<%= @results.each do |result| %>
-  <%= link_to result.title, result %>
-  <hr>
-  <%= image_tag(result.image) if result.is_a?(Photo) %>
-  <hr>
-  <%= result.is_a?(Photo) ? result.summary : result.body %>
-<% end %>
+<%= render 'shared/index', items: @results %>
