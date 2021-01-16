@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/new_photo', to: 'photos#new'
   post '/new_photo', to: 'photos#create'
 
+  get '/tag_search', to: 'tags#search'
+
   resources :journals, only: [:show, :edit, :update] do
     resources :tags, module: :journals
   end

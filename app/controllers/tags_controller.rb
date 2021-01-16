@@ -7,6 +7,10 @@ class TagsController < ApplicationController
     flash[:notice] = "Entry added!"
   end
 
+  def search
+    @results = Tag.all.includes(:taggable).select{ |x| x.name.include?(params[:tags][:tag]) }.map{ |x| x.taggable }
+  end
+
 
   private
 

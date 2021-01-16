@@ -1,5 +1,6 @@
 <div class="ui huge menu">
   <%= link_to "Time Capsule", root_path, class: "active item" %>
+  <%= render 'shared/search' %>
   <div class="right menu">
     <% if !user_signed_in? %>
       <%= link_to "Sign In", new_user_session_path, class: "item right floated" %>
