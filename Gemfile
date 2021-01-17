@@ -29,6 +29,8 @@ gem 'semantic-ui-sass', '~> 2.4', '>= 2.4.2.0'
 gem "simple_calendar", "~> 2.0"
 gem 'active_storage_validations', '~> 0.9.1'
 gem 'mini_magick', '~> 4.11'
+gem "image_processing", "~> 1.0"
+
 
 
 # Use Active Storage variant

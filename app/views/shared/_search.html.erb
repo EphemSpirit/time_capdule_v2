@@ -1,6 +1,8 @@
-<%= simple_form_for(:tags, url: tag_search_path, method: :GET, html: { class: "ui category search" }) do |f| %>
-  <div class="ui icon input">
-    <%= f.input :tag, placeholder: "Search entries by tag...", html: { class: "prompt" } %>
-    <i class="search icon"></i>
+<%= simple_form_for(:tags, url: tag_search_path, method: :GET, html: { class: "search-form"}) do |f| %>
+  <div class="ui category search">
+    <div class="ui icon input search-input">
+      <%= f.input :tag, placeholder: "Search entries by tag...", html: { class: "prompt" } %>
+      <i class="search icon"></i>
+    </div>
   </div>
 <% end %>

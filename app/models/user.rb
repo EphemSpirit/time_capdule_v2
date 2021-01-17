@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :dashboard, dependent: :destroy
   has_many :meetings, dependent: :destroy
   has_many :photos, dependent: :destroy
+  has_many :agendas, dependent: :destroy
   has_many :entries, class_name: "Journal", foreign_key: :author_id, dependent: :destroy
 
   private

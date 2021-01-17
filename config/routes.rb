@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     resources :tags, module: :photos
   end
 
+  resource :agendas do
+    resources :tags, module: :agendas
+  end
+
   resources :photos, only: [:show, :edit, :update]
 
   resource :dashboard, only: [:new, :create, :destroy]
