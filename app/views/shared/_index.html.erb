@@ -3,9 +3,17 @@
     <div class="ui four wide column">
       <div class="ui card">
         <div class="content">
-          <div class="centered header"><%= link_to item.title, (item.is_a?(Journal) ? journal_path(item) : photo_path(item)) %></div>
+          <div class="centered header">
+            <%if item.is_a?(Journal) %>
+              <%= link_to item.title, journal_path(item) %>
+            <% elsif item.is_a?(Photo) %>
+              <%= link_to item.title, photo_path(item) %>
+            <% else %>
+              <%= link_to item.title, agenda_path(item) %>
+            <% end %>
+          </div>
         </div>
-        <div class="content blurb"><%= (item.is_a?(Journal) ? item.body : image_tag(item.show_image)) %></div>
+        <div class="content blurb"><%= (item.is_a?(Photo) ? image_tag(item.show_image) : item.body) %></div>
       </div>
     </div>
   <% end %>

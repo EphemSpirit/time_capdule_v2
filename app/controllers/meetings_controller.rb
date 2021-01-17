@@ -24,6 +24,11 @@ class MeetingsController < ApplicationController
   def show
   end
 
+  def destroy
+    @meeting.destroy
+    redirect_to my_calendar_path
+  end
+
   private
 
    def meeting_params

@@ -14,7 +14,7 @@ class AgendasController < ApplicationController
 
     if @agenda.save
       flash[:notice] = "New agenda saved!"
-      redirect_to agendas_path
+      redirect_to @agenda
     else
       flash[:notice] = "Something went wrong"
       render :new

@@ -1,0 +1,17 @@
+<h2 class="ui centered header">Make a New Journal Entry</h2>
+
+<div class="ui container">
+  <%= simple_form_for(@agenda, local: true, html: { class: "ui form" }) do |f| %>
+    <div class="field">
+      <%= f.input :title, required: true %>
+    </div>
+    <div class="field journal-body">
+      <%= f.label :body %>
+      <%= f.rich_text_area :body, required: true %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Post Agenda", class: "positive ui button" %>
+      <%= link_to "Cancel", my_dashboard_path %>
+    </div>
+  <% end %>
+</div>

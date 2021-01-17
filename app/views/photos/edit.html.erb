@@ -12,9 +12,6 @@
       <%= f.label :summary %>
       <%= f.input :summary, required: true %>
     </div>
-    <div class="field">
-      <%= f.input :tags, collection: Photo::TAGS, as: :check_boxes %>
-    </div>
     <div class="form-actions">
       <%= f.button :submit, "Update Photo", class: "positive ui button" %>
       <%= link_to "Cancel", root_path %>

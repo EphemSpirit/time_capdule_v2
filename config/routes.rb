@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get '/tag_search', to: 'tags#search'
 
-  resources :journals, only: [:show, :edit, :update] do
+  resources :journals, only: [:show, :edit, :update, :destroy] do
     resources :tags, module: :journals
   end
 
@@ -29,11 +29,9 @@ Rails.application.routes.draw do
     resources :tags, module: :photos
   end
 
-  resource :agendas do
+  resources :agendas do
     resources :tags, module: :agendas
   end
-
-  resources :photos, only: [:show, :edit, :update]
 
   resource :dashboard, only: [:new, :create, :destroy]
   resource :meetings, only: [:show]
