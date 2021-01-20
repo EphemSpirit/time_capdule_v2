@@ -9,7 +9,7 @@
     <% elsif item.is_a?(Meeting) %>
       <%= item.description %>
     <% else %>
-      <%= image_tag item.show_image %>
+      <%= image_tag item.image %>
       <p><%= item.summary %></p>
     <% end %>
   </p>
@@ -20,7 +20,7 @@
     <%= render 'tags/form', taggable: item %>
   <% end %>
   <%= link_to "Delete Entry", (item.is_a?(Journal) ? journal_path(item) :
-                         item.is_a?(Photo) ? photo_path(item) :
+                         item.is_a?(Photo) ? photos_path(item) :
                          item.is_a?(Meeting) ? meetings_path(item) : agendas_path(item)), method: :delete,
                          data: { confirm: "Are you sure?" }, class: "ui negative button delete-entry" %>
 </div>
