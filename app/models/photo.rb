@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   has_one_attached :image
 
   validates :image, presence: true
-  validates :image, content_type: { in: %w[image/jpeg, image/gif, image/png],
+  validates :image, content_type: { in: %w[image/jpeg, image/jpg, image/gif, image/png],
                                     message: "Must be a valid image type" },
                                     size: { less_than: 10.megabytes, message: "Must be 10mb or smaller" }
   validates :summary, presence: true
