@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :agendas, dependent: :destroy
   has_many :entries, class_name: "Journal", foreign_key: :author_id, dependent: :destroy
 
+  validates :name, :username, :email, presence: true
+
   private
 
     def build_dashboard
