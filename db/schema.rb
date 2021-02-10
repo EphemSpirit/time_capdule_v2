@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_212312) do
+ActiveRecord::Schema.define(version: 2021_01_17_153942) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2021_02_10_212312) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "agendas", "users"
   add_foreign_key "dashboards", "users"
-  add_foreign_key "journals", "users", column: "author_id"
   add_foreign_key "meetings", "users"
   add_foreign_key "photos", "users"
 end

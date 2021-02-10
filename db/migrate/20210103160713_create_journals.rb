@@ -6,5 +6,6 @@ class CreateJournals < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_foreign_key :journals, :users, column: :author_id
   end
 end
